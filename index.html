@@ -28,7 +28,6 @@
         reader.addEventListener("load", () => {
           // document.querySelector('body').style.backgroundImage =`url(${reader.result})`;
           localStorage.setItem('imgURL', reader.result);
-          foodEl.style.backgroundImage = `url(${reader.result})`;
         }, false);
 
         if(file){
@@ -38,8 +37,7 @@
         document.querySelector('.modal').classList.add('hidden');
         document.querySelector('.overlay').classList.add('hidden');
       }
-      
-      foodEl.style.backgroundImage = `url(${localStorage.getItem('imgURL')})`;
+
     </script>
   </body>
 </html>
