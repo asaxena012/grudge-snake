@@ -15,6 +15,8 @@ export function draw(gameBoard) {
   foodEl.style.gridRowStart = food.y;
   foodEl.classList.add("food");
   gameBoard.appendChild(foodEl);
+  foodEl.style.backgroundImage = `url(${localStorage.getItem("imgURL")})`;
+  foodEl.style.backgroundSize = "contain";
 }
 
 function getRandomPos() {

@@ -22,19 +22,24 @@
 
         let foodEl = document.querySelector('.food');
 
-        if (input.files && input.files[0]) {
-        var reader = new FileReader();
+        const file = input.files[0];
+        const reader = new FileReader();
 
-        reader.onload = function (e) {
-            foodEl.style.backgroundImage =  e.target.result;
+        reader.addEventListener("load", () => {
+          // document.querySelector('body').style.backgroundImage =`url(${reader.result})`;
+          localStorage.setItem('imgURL', reader.result);
+          foodEl.style.backgroundImage = `url(${reader.result})`;
+        }, false);
+
+        if(file){
+          reader.readAsDataURL(file);
         }
-
-        reader.readAsDataURL(input.files[0]);
-    }
 
         document.querySelector('.modal').classList.add('hidden');
         document.querySelector('.overlay').classList.add('hidden');
       }
+      
+      foodEl.style.backgroundImage = `url(${localStorage.getItem('imgURL')})`;
     </script>
   </body>
 </html>
